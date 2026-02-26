@@ -16,6 +16,26 @@
     toggle.addEventListener("click", () => nav.classList.toggle("open"));
   };
 
+  const initWhatsAppFab = () => {
+    if (document.querySelector(".js-whatsapp-fab")) return;
+    const supportNumber = "989121234567";
+    const text = encodeURIComponent("سلام، برای مشاوره خرید کفش عروس پیام می‌دهم.");
+    const link = document.createElement("a");
+    link.className = "whatsapp-fab js-whatsapp-fab";
+    link.href = `https://wa.me/${supportNumber}?text=${text}`;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.ariaLabel = "چت آنلاین پشتیبانی در واتساپ";
+    link.title = "پشتیبانی آنلاین";
+    link.innerHTML = `
+      <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <path d="M19.11 17.29c-.27-.14-1.58-.78-1.82-.87-.24-.09-.42-.14-.6.13-.18.27-.69.87-.85 1.04-.16.18-.31.2-.58.07-.27-.14-1.13-.42-2.15-1.35-.8-.71-1.33-1.59-1.49-1.86-.16-.27-.02-.42.12-.55.12-.12.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.34-.02-.47-.07-.14-.6-1.45-.82-1.99-.21-.5-.43-.43-.6-.44h-.51c-.18 0-.47.07-.71.34-.24.27-.91.89-.91 2.16s.93 2.49 1.06 2.67c.13.18 1.83 2.79 4.44 3.92.62.27 1.11.43 1.49.55.63.2 1.21.17 1.67.1.51-.08 1.58-.64 1.8-1.26.22-.62.22-1.15.15-1.26-.07-.11-.24-.18-.51-.31z"></path>
+        <path d="M16.03 3.2c-6.98 0-12.63 5.64-12.63 12.6 0 2.22.58 4.4 1.69 6.33L3 29.4l7.44-1.94a12.7 12.7 0 0 0 5.59 1.33h.01c6.97 0 12.63-5.64 12.63-12.6S23.01 3.2 16.03 3.2zm0 23.44h-.01a10.78 10.78 0 0 1-5.49-1.5l-.39-.23-4.42 1.15 1.18-4.3-.25-.44a10.47 10.47 0 0 1-1.61-5.57c0-5.8 4.74-10.52 10.57-10.52 2.82 0 5.47 1.09 7.46 3.08a10.45 10.45 0 0 1 3.09 7.44c0 5.8-4.74 10.52-10.57 10.52z"></path>
+      </svg>
+    `;
+    document.body.appendChild(link);
+  };
+
   const safeParse = (value, fallback) => {
     try {
       const parsed = JSON.parse(value || "");
@@ -186,6 +206,24 @@
     });
   };
 
+  const initThumbQuickAdd = () => {
+    document.querySelectorAll(".js-thumb-add-cart").forEach((trigger) => {
+      trigger.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const added = trigger.getAttribute("data-added-to-cart") === "true";
+        if (added) {
+          window.location.href = "cart.html";
+          return;
+        }
+        const item = getProductDataFromElement(trigger);
+        addCartItem(item, 1);
+        trigger.setAttribute("data-added-to-cart", "true");
+        trigger.textContent = "مشاهده سبد خرید";
+      });
+    });
+  };
+
   const initHoverCartControls = () => {
     const categoryCards = document.querySelectorAll("#category-grid .product-card");
     if (!categoryCards.length) return;
@@ -193,17 +231,14 @@
     const itemByControl = new WeakMap();
 
     const renderControl = (el, qty) => {
-      if (qty <= 0) {
-        el.classList.remove("has-qty");
-        el.textContent = "افزودن به سبد خرید";
+      el.classList.remove("has-qty");
+      if (qty > 0) {
+        el.textContent = "مشاهده سبد خرید";
+        el.setAttribute("data-added-to-cart", "true");
         return;
       }
-      el.classList.add("has-qty");
-      el.innerHTML = `
-        <span class="qty-btn" data-action="plus">+</span>
-        <span class="qty-num">${qty}</span>
-        <span class="qty-btn" data-action="minus">-</span>
-      `;
+      el.textContent = "افزودن به سبد خرید";
+      el.setAttribute("data-added-to-cart", "false");
     };
 
     const getItemQty = (id) => {
@@ -232,22 +267,14 @@
       control.addEventListener("click", (e) => {
         e.preventDefault();
         e.stopPropagation();
-
-        const clicked = e.target;
-        const action = clicked instanceof HTMLElement ? clicked.dataset.action : "";
         const currentItem = itemByControl.get(control);
         if (!currentItem) return;
-
-        const currentQty = getItemQty(currentItem.id);
-
-        if (currentQty === 0 || action === "plus") {
-          addCartItem(currentItem, 1);
-        } else if (action === "minus") {
-          changeCartItemQty(currentItem.id, -1);
-        } else {
-          addCartItem(currentItem, 1);
+        const added = control.getAttribute("data-added-to-cart") === "true";
+        if (added) {
+          window.location.href = "cart.html";
+          return;
         }
-
+        addCartItem(currentItem, 1);
         renderControl(control, getItemQty(currentItem.id));
       });
     });
@@ -641,8 +668,10 @@
 
   initYear();
   initMobileMenu();
+  initWhatsAppFab();
   renderHeaderCounts();
   initCartButtons();
+  initThumbQuickAdd();
   initHoverCartControls();
   initFavorites();
   initWishlistPage();

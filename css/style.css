@@ -353,6 +353,10 @@ img {
   transition: all var(--transition);
 }
 
+.quick-view.js-thumb-add-cart {
+  cursor: pointer;
+}
+
 .product-thumb:hover img {
   transform: scale(1.05);
 }
@@ -430,6 +434,15 @@ img {
 
 .product-card:hover .card-fav,
 .product-card:hover .hover-cart-bar {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#category-grid .quick-view {
+  display: none;
+}
+
+#category-grid .hover-cart-bar {
   opacity: 1;
   transform: translateY(0);
 }
@@ -862,6 +875,10 @@ img {
 .description-box {
   margin-top: 1rem;
   padding: 1.15rem;
+}
+
+.related-section {
+  padding-top: 1.4rem;
 }
 
 /* Footer */
