@@ -1,0 +1,356 @@
+﻿<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sea Shoes | دسته‌بندی کفش عروس</title>
+  <meta name="description" content="دسته‌بندی کفش عروس Sea Shoes با فیلتر حرفه‌ای قیمت، رنگ و نوع کفش" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="logo" href="index.html">Sea Shoes</a>
+      <button class="menu-toggle js-menu-toggle" type="button" aria-label="باز کردن منو">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="main-nav js-main-nav" aria-label="منوی اصلی">
+        <a href="index.html">خانه</a>
+        <a href="category.html" class="active">کفش عروس</a>
+        <a href="product.html">محصول ویژه</a>
+        <a href="#footer">تماس با ما</a>
+      </nav>
+      <div class="header-actions">
+        <a class="action-link" href="wishlist.html" aria-label="علاقه‌مندی‌ها">♡ <span class="js-fav-count">0</span></a>
+        <a class="cart-link" href="cart.html">سبد خرید <span class="js-cart-count">0</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="بردکرامب">
+        <a href="index.html">خانه</a>
+        <span>/</span>
+        <span>کفش عروس</span>
+      </nav>
+
+      <div class="catalog-layout">
+        <aside class="filters" aria-label="فیلتر محصولات">
+          <h2>فیلترها</h2>
+
+          <section class="filter-group">
+            <h3>بازه قیمت (تومان)</h3>
+            <div class="price-values">
+              <span id="min-price-label">2,000,000 تومان</span>
+              <span id="max-price-label">10,000,000 تومان</span>
+            </div>
+            <div class="range-wrap">
+              <div class="slider-track"></div>
+              <div class="slider-progress js-price-progress"></div>
+              <input id="min-price" type="range" min="1500000" max="10000000" step="50000" value="2000000" />
+              <input id="max-price" type="range" min="1500000" max="10000000" step="50000" value="10000000" />
+            </div>
+          </section>
+
+          <section class="filter-group">
+            <h3>نوع کفش</h3>
+            <label><input type="checkbox" name="type" value="sneakers" checked /> کتونی عروس</label>
+            <label><input type="checkbox" name="type" value="heels" checked /> کفش پاشنه بلند</label>
+            <label><input type="checkbox" name="type" value="flats" checked /> کفش تخت</label>
+            <label><input type="checkbox" name="type" value="sandals" checked /> صندل</label>
+            <label><input type="checkbox" name="type" value="exclusive" checked /> کفش اختصاصی</label>
+          </section>
+
+          <section class="filter-group">
+            <h3>رنگ</h3>
+            <label><input type="checkbox" name="color" value="white" checked /> سفید</label>
+            <label><input type="checkbox" name="color" value="ivory" checked /> شیری</label>
+            <label><input type="checkbox" name="color" value="beige" checked /> بژ</label>
+            <label><input type="checkbox" name="color" value="silver" checked /> نقره‌ای</label>
+            <label><input type="checkbox" name="color" value="champagne" checked /> شامپاینی</label>
+          </section>
+
+          <section class="filter-group">
+            <h3>سایز</h3>
+            <label><input type="checkbox" name="size" value="36" checked /> 36</label>
+            <label><input type="checkbox" name="size" value="37" checked /> 37</label>
+            <label><input type="checkbox" name="size" value="38" checked /> 38</label>
+            <label><input type="checkbox" name="size" value="39" checked /> 39</label>
+            <label><input type="checkbox" name="size" value="40" checked /> 40</label>
+          </section>
+
+          <section class="filter-group">
+            <h3>ارتفاع پاشنه</h3>
+            <label><input type="checkbox" name="heel" value="3" checked /> کوتاه (3cm)</label>
+            <label><input type="checkbox" name="heel" value="5" checked /> متوسط (5cm)</label>
+            <label><input type="checkbox" name="heel" value="7" checked /> بلند (7cm)</label>
+            <label><input type="checkbox" name="heel" value="9" checked /> خیلی بلند (9cm)</label>
+          </section>
+
+          <button id="apply-filters" class="btn btn-primary" type="button">اعمال فیلتر</button>
+        </aside>
+
+        <section>
+          <div class="section-head">
+            <h1>کفش عروس</h1>
+            <p id="results-count" class="muted">0 محصول</p>
+          </div>
+
+          <div id="category-grid" class="product-grid category-grid">
+            <article class="product-card" data-price="3200000" data-size="37" data-heel="7" data-color="ivory" data-type="heels">
+              <a href="product.html" class="product-thumb">
+                <img class="primary-image" src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=900&q=80" alt="کفش عروس مرواریدی" />
+                <img class="hover-image" src="https://images.unsplash.com/photo-1515347619252-60a4bf4fff4f?auto=format&fit=crop&w=900&q=80" alt="نمای دوم کفش عروس مرواریدی" />
+                <span class="quick-view">مشاهده سریع</span>
+              </a>
+              <div class="card-tools">
+                <button class="icon-btn js-card-cart" type="button" aria-label="افزودن به سبد">🛍</button>
+                <button class="icon-btn js-fav-btn" type="button" aria-label="افزودن به علاقه‌مندی">♡</button>
+              </div>
+              <div class="product-body">
+                <h3><a href="product.html">کفش عروس مرواریدی</a></h3>
+                <p class="meta">سایز 37 | پاشنه 7cm</p>
+                <p class="material">ساتن ابریشمی با مروارید دست‌دوز و کفی نرم طبی</p>
+                <p class="price">3,200,000 تومان</p>
+              </div>
+            </article>
+
+            <article class="product-card" data-price="2850000" data-size="38" data-heel="5" data-color="white" data-type="sandals">
+              <a href="product.html" class="product-thumb">
+                <img class="primary-image" src="https://images.unsplash.com/photo-1515347619252-60a4bf4fff4f?auto=format&fit=crop&w=900&q=80" alt="کفش عروس ساتن" />
+                <img class="hover-image" src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&w=900&q=80" alt="نمای دوم کفش عروس ساتن" />
+                <span class="quick-view">مشاهده سریع</span>
+              </a>
+              <div class="card-tools">
+                <button class="icon-btn js-card-cart" type="button" aria-label="افزودن به سبد">🛍</button>
+                <button class="icon-btn js-fav-btn" type="button" aria-label="افزودن به علاقه‌مندی">♡</button>
+              </div>
+              <div class="product-body">
+                <h3><a href="product.html">کفش عروس ساتن</a></h3>
+                <p class="meta">سایز 38 | پاشنه 5cm</p>
+                <p class="material">رویه ساتن مات، آستر تنفسی و پد داخلی ضد خستگی</p>
+                <p class="price">2,850,000 تومان</p>
+              </div>
+            </article>
+
+            <article class="product-card" data-price="3650000" data-size="39" data-heel="9" data-color="silver" data-type="exclusive">
+              <a href="product.html" class="product-thumb">
+                <img class="primary-image" src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?auto=format&fit=crop&w=900&q=80" alt="کفش عروس کلاسیک" />
+                <img class="hover-image" src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=900&q=80" alt="نمای دوم کفش عروس کلاسیک" />
+                <span class="quick-view">مشاهده سریع</span>
+              </a>
+              <div class="card-tools">
+                <button class="icon-btn js-card-cart" type="button" aria-label="افزودن به سبد">🛍</button>
+                <button class="icon-btn js-fav-btn" type="button" aria-label="افزودن به علاقه‌مندی">♡</button>
+              </div>
+              <div class="product-body">
+                <h3><a href="product.html">کفش عروس کلاسیک</a></h3>
+                <p class="meta">سایز 39 | پاشنه 9cm</p>
+                <p class="material">چرم ناپا، کریستال‌کاری ظریف و زیره ضد لغزش</p>
+                <p class="price">3,650,000 تومان</p>
+              </div>
+            </article>
+
+            <article class="product-card" data-price="2480000" data-size="36" data-heel="3" data-color="beige" data-type="flats">
+              <a href="product.html" class="product-thumb">
+                <img class="primary-image" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80" alt="کفش عروس تخت لطیف" />
+                <img class="hover-image" src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=900&q=80" alt="نمای دوم کفش عروس تخت لطیف" />
+                <span class="quick-view">مشاهده سریع</span>
+              </a>
+              <div class="card-tools">
+                <button class="icon-btn js-card-cart" type="button" aria-label="افزودن به سبد">🛍</button>
+                <button class="icon-btn js-fav-btn" type="button" aria-label="افزودن به علاقه‌مندی">♡</button>
+              </div>
+              <div class="product-body">
+                <h3><a href="product.html">کفش عروس تخت لطیف</a></h3>
+                <p class="meta">سایز 36 | پاشنه 3cm</p>
+                <p class="material">پارچه بژ روشن، کفی مموری فوم و آستر لطیف</p>
+                <p class="price">2,480,000 تومان</p>
+              </div>
+            </article>
+
+            <article class="product-card" data-price="2980000" data-size="40" data-heel="5" data-color="champagne" data-type="sandals">
+              <a href="product.html" class="product-thumb">
+                <img class="primary-image" src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&w=900&q=80" alt="کفش عروس براق" />
+                <img class="hover-image" src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=900&q=80" alt="نمای دوم کفش عروس براق" />
+                <span class="quick-view">مشاهده سریع</span>
+              </a>
+              <div class="card-tools">
+                <button class="icon-btn js-card-cart" type="button" aria-label="افزودن به سبد">🛍</button>
+                <button class="icon-btn js-fav-btn" type="button" aria-label="افزودن به علاقه‌مندی">♡</button>
+              </div>
+              <div class="product-body">
+                <h3><a href="product.html">کفش عروس براق</a></h3>
+                <p class="meta">سایز 40 | پاشنه 5cm</p>
+                <p class="material">رویه متالیک شامپاینی، بند نرم و زیره سبک</p>
+                <p class="price">2,980,000 تومان</p>
+              </div>
+            </article>
+
+            <article class="product-card" data-price="4120000" data-size="38" data-heel="9" data-color="silver" data-type="exclusive">
+              <a href="product.html" class="product-thumb">
+                <img class="primary-image" src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=900&q=80" alt="کفش عروس کریستالی" />
+                <img class="hover-image" src="https://images.unsplash.com/photo-1465453869711-7e174808ace9?auto=format&fit=crop&w=900&q=80" alt="نمای دوم کفش عروس کریستالی" />
+                <span class="quick-view">مشاهده سریع</span>
+              </a>
+              <div class="card-tools">
+                <button class="icon-btn js-card-cart" type="button" aria-label="افزودن به سبد">🛍</button>
+                <button class="icon-btn js-fav-btn" type="button" aria-label="افزودن به علاقه‌مندی">♡</button>
+              </div>
+              <div class="product-body">
+                <h3><a href="product.html">کفش عروس کریستالی</a></h3>
+                <p class="meta">سایز 38 | پاشنه 9cm</p>
+                <p class="material">کریستال اتریشی، چرم طبیعی و ساختار فرم‌گیر پا</p>
+                <p class="price">4,120,000 تومان</p>
+              </div>
+            </article>
+
+            <article class="product-card" data-price="2740000" data-size="37" data-heel="3" data-color="ivory" data-type="sneakers">
+              <a href="product.html" class="product-thumb">
+                <img class="primary-image" src="https://images.unsplash.com/photo-1556048219-bb6978360b84?auto=format&fit=crop&w=900&q=80" alt="کفش عروس راحتی" />
+                <img class="hover-image" src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=900&q=80" alt="نمای دوم کفش عروس راحتی" />
+                <span class="quick-view">مشاهده سریع</span>
+              </a>
+              <div class="card-tools">
+                <button class="icon-btn js-card-cart" type="button" aria-label="افزودن به سبد">🛍</button>
+                <button class="icon-btn js-fav-btn" type="button" aria-label="افزودن به علاقه‌مندی">♡</button>
+              </div>
+              <div class="product-body">
+                <h3><a href="product.html">کتونی عروس راحتی</a></h3>
+                <p class="meta">سایز 37 | پاشنه 3cm</p>
+                <p class="material">پارچه تنفسی، زیره EVA سبک و جذب شوک بالا</p>
+                <p class="price">2,740,000 تومان</p>
+              </div>
+            </article>
+
+            <article class="product-card" data-price="3350000" data-size="39" data-heel="7" data-color="white" data-type="heels">
+              <a href="product.html" class="product-thumb">
+                <img class="primary-image" src="https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=900&q=80" alt="کفش عروس بنددار" />
+                <img class="hover-image" src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=900&q=80" alt="نمای دوم کفش عروس بنددار" />
+                <span class="quick-view">مشاهده سریع</span>
+              </a>
+              <div class="card-tools">
+                <button class="icon-btn js-card-cart" type="button" aria-label="افزودن به سبد">🛍</button>
+                <button class="icon-btn js-fav-btn" type="button" aria-label="افزودن به علاقه‌مندی">♡</button>
+              </div>
+              <div class="product-body">
+                <h3><a href="product.html">کفش عروس بنددار</a></h3>
+                <p class="meta">سایز 39 | پاشنه 7cm</p>
+                <p class="material">بند ساتنی، کفی ضد فشار و فرم استاندارد پنجه</p>
+                <p class="price">3,350,000 تومان</p>
+              </div>
+            </article>
+
+            <article class="product-card" data-price="2560000" data-size="36" data-heel="5" data-color="beige" data-type="flats">
+              <a href="product.html" class="product-thumb">
+                <img class="primary-image" src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=900&q=80" alt="کفش عروس ساده" />
+                <img class="hover-image" src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&w=900&q=80" alt="نمای دوم کفش عروس ساده" />
+                <span class="quick-view">مشاهده سریع</span>
+              </a>
+              <div class="card-tools">
+                <button class="icon-btn js-card-cart" type="button" aria-label="افزودن به سبد">🛍</button>
+                <button class="icon-btn js-fav-btn" type="button" aria-label="افزودن به علاقه‌مندی">♡</button>
+              </div>
+              <div class="product-body">
+                <h3><a href="product.html">کفش عروس ساده</a></h3>
+                <p class="meta">سایز 36 | پاشنه 5cm</p>
+                <p class="material">رویه نرم مات، آستر میکروفایبر و طراحی مینیمال</p>
+                <p class="price">2,560,000 تومان</p>
+              </div>
+            </article>
+
+            <article class="product-card" data-price="3860000" data-size="40" data-heel="7" data-color="champagne" data-type="exclusive">
+              <a href="product.html" class="product-thumb">
+                <img class="primary-image" src="https://images.unsplash.com/photo-1465453869711-7e174808ace9?auto=format&fit=crop&w=900&q=80" alt="کفش عروس کارشده" />
+                <img class="hover-image" src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=900&q=80" alt="نمای دوم کفش عروس کارشده" />
+                <span class="quick-view">مشاهده سریع</span>
+              </a>
+              <div class="card-tools">
+                <button class="icon-btn js-card-cart" type="button" aria-label="افزودن به سبد">🛍</button>
+                <button class="icon-btn js-fav-btn" type="button" aria-label="افزودن به علاقه‌مندی">♡</button>
+              </div>
+              <div class="product-body">
+                <h3><a href="product.html">کفش عروس کارشده</a></h3>
+                <p class="meta">سایز 40 | پاشنه 7cm</p>
+                <p class="material">تزئینات دست‌دوز، زیره چرمی و پد راحتی دولایه</p>
+                <p class="price">3,860,000 تومان</p>
+              </div>
+            </article>
+
+            <article class="product-card" data-price="2250000" data-size="37" data-heel="3" data-color="ivory" data-type="sneakers">
+              <a href="product.html" class="product-thumb">
+                <img class="primary-image" src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=900&q=80" alt="کفش عروس مینیمال" />
+                <img class="hover-image" src="https://images.unsplash.com/photo-1556048219-bb6978360b84?auto=format&fit=crop&w=900&q=80" alt="نمای دوم کفش عروس مینیمال" />
+                <span class="quick-view">مشاهده سریع</span>
+              </a>
+              <div class="card-tools">
+                <button class="icon-btn js-card-cart" type="button" aria-label="افزودن به سبد">🛍</button>
+                <button class="icon-btn js-fav-btn" type="button" aria-label="افزودن به علاقه‌مندی">♡</button>
+              </div>
+              <div class="product-body">
+                <h3><a href="product.html">کتونی عروس مینیمال</a></h3>
+                <p class="meta">سایز 37 | پاشنه 3cm</p>
+                <p class="material">بافت لطیف، کفی انعطاف‌پذیر و تهویه مناسب پا</p>
+                <p class="price">2,250,000 تومان</p>
+              </div>
+            </article>
+
+            <article class="product-card" data-price="4300000" data-size="39" data-heel="9" data-color="silver" data-type="heels">
+              <a href="product.html" class="product-thumb">
+                <img class="primary-image" src="https://images.unsplash.com/photo-1595341888016-a392ef81b7de?auto=format&fit=crop&w=900&q=80" alt="کفش عروس لاکچری" />
+                <img class="hover-image" src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?auto=format&fit=crop&w=900&q=80" alt="نمای دوم کفش عروس لاکچری" />
+                <span class="quick-view">مشاهده سریع</span>
+              </a>
+              <div class="card-tools">
+                <button class="icon-btn js-card-cart" type="button" aria-label="افزودن به سبد">🛍</button>
+                <button class="icon-btn js-fav-btn" type="button" aria-label="افزودن به علاقه‌مندی">♡</button>
+              </div>
+              <div class="product-body">
+                <h3><a href="product.html">کفش عروس لاکچری</a></h3>
+                <p class="meta">سایز 39 | پاشنه 9cm</p>
+                <p class="material">چرم لوکس، جزئیات براق و تعادل عالی روی پا</p>
+                <p class="price">4,300,000 تومان</p>
+              </div>
+            </article>
+          </div>
+
+          <nav class="pagination js-pagination" aria-label="صفحه‌بندی محصولات"></nav>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer id="footer" class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>Sea Shoes</h3>
+        <p>فروشگاه تخصصی کفش عروس با تمرکز بر کیفیت، راحتی و طراحی خاص.</p>
+      </div>
+      <div>
+        <h4>دسترسی سریع</h4>
+        <ul>
+          <li><a href="index.html">خانه</a></li>
+          <li><a href="category.html">دسته‌بندی</a></li>
+          <li><a href="product.html">جزئیات محصول</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>ارتباط</h4>
+        <ul>
+          <li>تهران، الهیه</li>
+          <li>021-22223344</li>
+          <li>hello@seashoes.ir</li>
+        </ul>
+      </div>
+    </div>
+    <p class="copyright">© <span class="js-year"></span> Sea Shoes. تمامی حقوق محفوظ است.</p>
+  </footer>
+</body>
+</html>
+
+
